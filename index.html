@@ -3,21 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Lançamento exclusivo | Gondopar</title>
-
-  <meta
-    name="description"
-    content="Um novo lançamento exclusivo Gondopar. Em breve, explore o produto em 360°."
-  >
-
+  <meta name="description" content="Um novo lançamento exclusivo Gondopar. Em breve, explore o produto em 360°.">
   <meta name="theme-color" content="#d80019">
+  <title>Lançamento exclusivo | Gondopar</title>
 
   <style>
     :root {
+      color-scheme: light;
       --vermelho: #d80019;
       --texto: #222225;
-      --secundario: #76767c;
+      --secundario: #68686f;
       --borda: #e9e9ec;
       --fundo: #fafafa;
     }
@@ -26,24 +21,17 @@
       box-sizing: border-box;
     }
 
-    html {
-      color-scheme: light;
-    }
-
     body {
       margin: 0;
-      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      font-family: "Segoe UI", Arial, sans-serif;
       background: var(--fundo);
       color: var(--texto);
-      -webkit-font-smoothing: antialiased;
     }
 
     .container {
       width: min(1360px, calc(100% - 96px));
       margin-inline: auto;
     }
-
-    /* CABEÇALHO */
 
     .cabecalho {
       background: #fff;
@@ -63,13 +51,12 @@
       display: block;
       width: 250px;
       max-width: 100%;
+      min-width: 0;
       height: auto;
     }
 
     .selo {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
+      flex-shrink: 0;
       padding: 10px 15px;
       border: 1px solid #efdadd;
       border-radius: 100px;
@@ -79,18 +66,8 @@
       letter-spacing: 1.5px;
       line-height: 1.4;
       text-transform: uppercase;
+      text-align: center;
     }
-
-    .selo::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: var(--vermelho);
-    }
-
-    /* APRESENTAÇÃO */
 
     main {
       padding-block: 68px 48px;
@@ -101,10 +78,6 @@
       grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
       align-items: center;
       gap: 60px;
-    }
-
-    .texto-apresentacao {
-      padding-block: 30px;
     }
 
     .categoria {
@@ -124,17 +97,15 @@
       content: "";
       width: 28px;
       height: 2px;
-      flex-shrink: 0;
       background: var(--vermelho);
     }
 
     h1 {
       margin: 0;
-      max-width: 540px;
       font-size: clamp(38px, 4.4vw, 65px);
       font-weight: 600;
       line-height: 1.08;
-      letter-spacing: -2.8px;
+      letter-spacing: -0.043em;
       text-wrap: balance;
     }
 
@@ -152,42 +123,24 @@
     }
 
     .assinatura {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 42px;
-      color: #85858b;
+      margin: 42px 0 0;
+      color: var(--secundario);
       font-size: 11px;
       letter-spacing: 0.2px;
     }
 
-    .assinatura svg {
-      width: 23px;
-      height: 23px;
-      flex-shrink: 0;
-      color: var(--vermelho);
-    }
-
-    /* VISUALIZADOR */
-
     .visualizador {
       position: relative;
-      min-width: 0;
       overflow: hidden;
-      border: 1px solid #e7e7eb;
+      border: 1px solid var(--borda);
       border-radius: 26px;
       background: #fff;
-      box-shadow:
-        0 24px 60px -35px rgba(25, 25, 35, 0.16),
-        0 3px 10px rgba(25, 25, 35, 0.015);
+      box-shadow: 0 24px 60px -35px rgb(25 25 35 / 16%);
     }
 
     .visualizador-topo {
       position: absolute;
-      z-index: 1;
-      top: 25px;
-      left: 27px;
-      right: 27px;
+      inset: 25px 27px auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -195,7 +148,7 @@
     }
 
     .visualizador-titulo {
-      color: #68686f;
+      color: var(--secundario);
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 1.6px;
@@ -203,40 +156,20 @@
     }
 
     .etiqueta-360 {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
       padding: 7px 10px;
-      border: 1px solid #e7e7eb;
+      border: 1px solid var(--borda);
       border-radius: 100px;
-      color: #73737b;
-      background: rgba(255, 255, 255, 0.85);
+      color: var(--secundario);
+      background: #fff;
       font-size: 11px;
-    }
-
-    .etiqueta-360 svg {
-      width: 16px;
-      height: 16px;
     }
 
     .area-produto {
       min-height: 570px;
       display: grid;
       place-items: center;
-      padding: 100px 25px;
-      background:
-        radial-gradient(
-          ellipse at 50% 42%,
-          #ffffff 0%,
-          #ffffff 30%,
-          #f5f5f7 100%
-        );
-    }
-
-    .placeholder {
-      position: relative;
-      width: 100%;
-      max-width: 330px;
+      padding: 90px 25px;
+      background: radial-gradient(ellipse at 50% 42%, #fff 30%, #f5f5f7 100%);
       text-align: center;
     }
 
@@ -249,8 +182,12 @@
       place-items: center;
       border: 1px solid #e4e4e9;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.7);
-      box-shadow: 0 15px 40px -25px rgba(0, 0, 0, 0.2);
+      background: #fff;
+      box-shadow: 0 15px 40px -25px rgb(0 0 0 / 20%);
+      color: #777780;
+      font-size: 39px;
+      font-weight: 300;
+      letter-spacing: -2px;
     }
 
     .simbolo::before {
@@ -274,69 +211,33 @@
       box-sizing: content-box;
     }
 
-    .simbolo span {
-      color: #a3a3ac;
-      font-size: 39px;
-      font-weight: 300;
-      letter-spacing: -2px;
-    }
-
     .placeholder h2 {
       margin: 0 0 10px;
-      color: #55555f;
       font-size: 19px;
       font-weight: 500;
-      letter-spacing: -0.4px;
     }
 
     .placeholder p {
       max-width: 235px;
       margin: 0 auto;
-      color: #92929a;
+      color: var(--secundario);
       font-size: 12px;
       line-height: 1.8;
     }
 
-    .visualizador-base {
+    .disponibilidade {
       position: absolute;
       bottom: 24px;
       left: 27px;
-      right: 27px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
+      color: var(--secundario);
+      font-size: 11px;
     }
-
-    .disponibilidade {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      color: #92929a;
-      font-size: 10px;
-    }
-
-    .disponibilidade::before {
-      content: "";
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: #b5b5bd;
-    }
-
-    .detalhe-canto {
-      width: 20px;
-      height: 20px;
-      color: #b3b3bc;
-    }
-
-    /* FAIXA INFERIOR */
 
     .faixa-inferior {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 12px 24px;
+      flex-wrap: wrap;
       margin-top: 48px;
       padding-top: 24px;
       border-top: 1px solid var(--borda);
@@ -344,16 +245,10 @@
 
     .faixa-inferior p {
       margin: 0;
-      color: #929298;
+      color: var(--secundario);
       font-size: 11px;
       line-height: 1.7;
     }
-
-    .faixa-inferior .assinatura-marca {
-      color: #68686f;
-    }
-
-    /* TABLET */
 
     @media (max-width: 1050px) {
       .container {
@@ -365,17 +260,10 @@
         gap: 32px;
       }
 
-      h1 {
-        font-size: 45px;
-        letter-spacing: -2px;
-      }
-
       .area-produto {
         min-height: 510px;
       }
     }
-
-    /* CELULAR */
 
     @media (max-width: 760px) {
       .container {
@@ -394,15 +282,9 @@
 
       .selo {
         max-width: 112px;
-        justify-content: center;
         padding: 8px 10px;
-        font-size: 8px;
+        font-size: 9px;
         letter-spacing: 0.8px;
-        text-align: center;
-      }
-
-      .selo::before {
-        display: none;
       }
 
       main {
@@ -414,32 +296,17 @@
         gap: 29px;
       }
 
-      .texto-apresentacao {
-        padding-block: 0;
-      }
-
       .categoria {
         margin-bottom: 20px;
-        font-size: 9px;
-        letter-spacing: 1.7px;
-      }
-
-      h1 {
-        max-width: 480px;
-        font-size: clamp(38px, 7.5vw, 52px);
-        letter-spacing: -1.8px;
       }
 
       .descricao {
-        max-width: 430px;
         margin-top: 19px;
         font-size: 14px;
-        line-height: 1.8;
       }
 
       .assinatura {
         margin-top: 23px;
-        font-size: 10px;
       }
 
       .visualizador {
@@ -448,33 +315,21 @@
 
       .area-produto {
         min-height: 425px;
-        padding-block: 87px;
       }
 
       .visualizador-topo {
-        top: 19px;
-        left: 20px;
-        right: 20px;
+        inset: 19px 20px auto;
       }
 
-      .visualizador-titulo {
-        font-size: 9px;
-        letter-spacing: 1px;
-      }
-
-      .visualizador-base {
+      .disponibilidade {
         bottom: 19px;
         left: 20px;
-        right: 20px;
       }
 
       .simbolo {
         width: 142px;
         height: 142px;
         margin-bottom: 23px;
-      }
-
-      .simbolo span {
         font-size: 34px;
       }
 
@@ -484,9 +339,6 @@
       }
 
       .faixa-inferior {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
         margin-top: 30px;
         padding-top: 20px;
       }
@@ -517,47 +369,27 @@
     <div class="container cabecalho-conteudo">
       <img
         class="logo"
-        src="./imagens/GONDOPAR_HORIZONTAL.jpg"
+        src="./imagens/GONDOPAR_HORIZONTAL.JPG"
         alt="Gondopar"
       >
-
       <span class="selo">Lançamento exclusivo</span>
     </div>
   </header>
 
   <main class="container">
     <section class="apresentacao" aria-labelledby="titulo-pagina">
-
       <div class="texto-apresentacao">
         <p class="categoria">Exclusividade Gondopar</p>
-
         <h1 id="titulo-pagina">
           Um novo lançamento.
           <span>Em breve.</span>
         </h1>
-
         <p class="descricao">
           Estamos preparando uma apresentação especial.
           Em breve, você poderá explorar nosso novo produto
           e conhecer cada detalhe em 360°.
         </p>
-
-        <div class="assinatura">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M12 3 20 7.5v9L12 21l-8-4.5v-9L12 3Z"/>
-            <path d="m4 7.5 8 4.5 8-4.5M12 12v9"/>
-          </svg>
-
-          <span>Apresentação interativa em preparação</span>
-        </div>
+        <p class="assinatura">Apresentação interativa em preparação</p>
       </div>
 
       <section class="visualizador" aria-labelledby="titulo-visualizador">
@@ -565,66 +397,24 @@
           <span class="visualizador-titulo" id="titulo-visualizador">
             Explore o produto
           </span>
-
-          <span class="etiqueta-360">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M20 8c-1.5-2-4.5-3-8-3C6.5 5 2 8.1 2 12s4.5 7 10 7c4.5 0 8.2-2 9.5-5"/>
-              <path d="M20 3v5h-5"/>
-            </svg>
-            360°
-          </span>
+          <span class="etiqueta-360">360°</span>
         </div>
 
-        <!--
-          ÁREA DO FUTURO PRODUTO:
-          O visualizador KeyShotXR ou GLB será inserido aqui.
-        -->
+        <!-- O visualizador do produto será inserido nesta área. -->
         <div class="area-produto" id="produto-360">
           <div class="placeholder">
-            <div class="simbolo" aria-hidden="true">
-              <span>360°</span>
-            </div>
-
+            <div class="simbolo" aria-hidden="true">360°</div>
             <h2>Todos os ângulos. Cada detalhe.</h2>
-
-            <p>
-              Este espaço está reservado para o nosso novo lançamento.
-            </p>
+            <p>Este espaço está reservado para o nosso novo lançamento.</p>
           </div>
         </div>
 
-        <div class="visualizador-base">
-          <span class="disponibilidade">Disponível em breve</span>
-
-          <svg
-            class="detalhe-canto"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.2"
-            stroke-linecap="round"
-            aria-hidden="true"
-          >
-            <path d="M8 3H3v5M16 3h5v5M21 16v5h-5M8 21H3v-5"/>
-          </svg>
-        </div>
+        <span class="disponibilidade">Disponível em breve</span>
       </section>
-
     </section>
 
     <footer class="faixa-inferior">
-      <p class="assinatura-marca">
-        Gondopar | Gôndolas e mobílias especiais
-      </p>
-
+      <p>Gondopar | Gôndolas e mobílias especiais</p>
       <p>Todos os direitos reservados.</p>
     </footer>
   </main>
